@@ -1,21 +1,50 @@
-# Analyzing-TSP
 Implement and analyze four TSP solution algorithms:
+-	Brute Force Solution Algorithm
+-	Branch and Bound Best First Search Algorithm
+-	Nearest Neighbor Algorithm
+-	Greedy Heuristic Algorithm
 
-	[brute force solution]
-
-	[best first search]
-
-	[nearest neighbor]
-
-	[greedy heuristic]
-
-Project:
-
+Project members:
 James Yao, Melanie Chen
 
 To compile:
 $ make
 
 To run:
-$ ./TSP <number of vertices>
+$ ./TSP <n = number of vertices>
 
+(the number of runs/matrices to test can be changed in Driver; default = 5)
+
+This project implements and tests the four TSP algorithms.
+Each of these are functions in the program.
+
+Brute force:
+-	Enumerates all paths (Hamiltonian cycle)
+		To implement this, a path is permuted and its cost, summed
+		Only a single path array required
+-	Find shortest total cost path
+-	There are n! possible paths => O(n!)
+
+Best first search:
+-	Creates graph of nodes
+-	Node class:
+		Contains a partial path and a lower bound
+-	Nodes are pruned if the bound is higher than a lowest so far
+		To implement this, a priority queue is used (priority = lowest bound)
+-	Worst case of no pruning means n! nodes are created => O(n!)
+		
+Nearest neighbor:
+-	For a vertex, choose the shortest cost edge (greedy choice)
+-	Repeat for vertex of choosen edge
+-	Each vertex is stored in a path array
+		Final cost is calculated with this array
+-	For n edges, each edge is choosen out of n edges => O(n^2)
+		
+Greedy heuristic:
+-	Find shortest cost edge amongst all edges
+-	Repeat whilst avoiding creating cycles
+-	Copy of adjacency matrix required to invalidate edges that can cause a 
+	premature edge
+-	Each vertex is stored in a path array
+		Final cost is calculated with this array
+-	For n edges, each edge is choosen out of n^2 edges => O(n^3)
