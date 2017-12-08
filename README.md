@@ -1,11 +1,16 @@
 # Analyzing-TSP
 Implement and analyze four TSP solution algorithms:
+
 	[brute force solution]
+
 	[best first search]
+
 	[nearest neighbor]
+
 	[greedy heuristic]
 
-Project
+Project:
+
 James Yao, Melanie Chen
 
 To compile:
