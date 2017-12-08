@@ -18,7 +18,11 @@ int main(int argc, char **argv)
 	runs = 5;
 	
 	// Check arguments
-	if (argc != 2) exit(1);
+	if (argc != 2)
+	{
+		std::cout << "Usage error: \n\t./TSP <num vertices>" << std::endl;
+		exit(1);
+	}
 	
 	// Initization
 	costs = new int[runs];
